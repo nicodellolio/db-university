@@ -21,7 +21,7 @@
     GROUP BY `office_address`;
 
 - result 
-    `teacher_count` ->     `office_address`
+    `teacher_count` ->   `office_address`
     1             ->     Borgo Demis 1
     8             ->     Borgo Elga 89
     4             ->     Borgo Elio 234 Piano 4
@@ -106,14 +106,54 @@
 
 
 # Joins
-
 ## 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
-- 
+- query 
+    SELECT `students`.`id` AS `student_id`,`students`.`name`, `students`.`surname`, `students`.`email`
+    FROM `students`
+    JOIN `degrees` ON `degrees`.`id` = `degree_id`
+    WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+- result: 
+    - 68 student(s) found
+
 ## 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
-- 
+- query
+    SELECT `degrees`.`id` AS `degree_id`, `degrees`.`name` AS `degree_name`, `degrees`.`department_id`, `degrees`.`level` AS `degree_level`, `degrees`.`address` AS `degree_address`
+    FROM `degrees`
+    JOIN `departments` ON `departments`.`id` = `department_id`
+    WHERE `departments`.`name` = 'Dipartimento di Neuroscienze'
+    AND `degrees`.`level` = 'magistrale';
+
+- result
+    - 1 degree(s) found
+    `degree_id`      -> 44
+    `degree_name`    -> Corso di Laurea Magistrale in Odontoiatria e Prote...
+    `department_id`  -> 7
+    `degree_level`   -> magistrale
+    `degree_address` -> Via Mariani 185
 
 ## 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
-- 
+- query
+    SELECT `course_teacher`.`course_id`
+    FROM `course_teacher`
+    JOIN `teachers`
+    ON `teachers`.`id` = `course_teacher`.`teacher_id`
+    WHERE `teachers`.`id` = 44;
+
+- result
+    - 11 course(s) found
+    `course_id`	
+        23
+        155
+        170
+        251
+        489
+        601
+        725
+        766
+        1016
+        1017
+        1259
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 - 
