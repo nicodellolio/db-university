@@ -1,7 +1,3 @@
-## 1.Selezionare tutti gli studenti nati nel 1990 (160)
-### query: 
-- SELECT * FROM `students` WHERE date_of_birth LIKE '1990-%';
-
 # Group by
 
 ## 1. Contare quanti iscritti ci sono stati ogni anno
