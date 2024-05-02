@@ -156,10 +156,25 @@
         1259
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
-- 
+- query
+    SELECT `students`.`id` AS student_id,  `students`.`surname` AS `student_surname`, `students`.`name` AS `student_name`, `degrees`.`id` AS `degree_id`, `degrees`.`name` AS `degree_name`, `degrees`.`department_id`, `degrees`.`level`, `degrees`.`address`, `degrees`.`email`, `degrees`.`website`
+    FROM `students` 
+    JOIN `degrees` ON `degrees`.`id` = `degree_id`
+    ORDER BY `students`.`surname` ASC, `students`.`name` ASC
+
+- result
+    - 5000 student(s) found
 
 ## 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
-- 
+- query
+    SELECT `degrees`.`id` AS `degrees_id`, `degrees`.`name` AS `degree_name`, `courses`.`id` AS `course_id`, `courses`.`name` AS `course_name`, `teachers`.`id` AS `teacher_id`,`teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`
+    FROM `degrees`
+    JOIN `courses` ON `courses`.`degree_id` = `degree`.`id`
+    JOIN `course_teacher` ON `course_id` = `courses`.`id`
+    JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+
+- result
+    - 1317 degree(s) found
  
 ## 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 - 
