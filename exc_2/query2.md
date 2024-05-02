@@ -177,7 +177,17 @@
     - 1317 degree(s) found
  
 ## 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
-- 
+- query
+    SELECT `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`, `teachers`.`email` AS `teacher_email`
+    FROM `course_teacher`
+    JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+    JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id`
+    JOIN `degrees` ON `degrees`.`id` = `courses`.`degree_id`
+    JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+    WHERE `departments`.`name` = 'Dipartimento di Matematica';
+
+- result
+    - 70 teacher(s) found
 
 
-BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
+<!-- MI SONO RESO CONTO UN PO' TARDI DELLA POSSIBILITÀ DI FARE JOIN DI PIÙ TABELLE, PER QUESTO NEGLI ESERCIZI FINO AL 4, SEPPUR CORRETTI, MANCANO TANTE INFORMAZIONI RELATIVE ALLE ALTRE TABELLE. IN QUANTO VI SONO PRESENTI SOLTANTO GLI ID -->
