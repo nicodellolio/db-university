@@ -142,25 +142,43 @@
 
 - result
     - 11 course(s) found
-    `course_id`	
-        23
-        155
-        170
-        251
-        489
-        601
-        725
-        766
-        1016
-        1017
-        1259
+23   |   Corso di Laurea in Biologia molecolare              |   triennale   |   biologia-molecolare@uni.it
+155  |   Corso di Laurea Magistrale in Scienze della natura  |   magistrale  |   scienze-della-natura@uni.it
+170  |   Corso di Laurea in Astronomia                       |   triennale   |   astronomia@uni.it
+251  |   Corso di Laurea in Ingegneria Civile                |   triennale   |   ingegneria-civile@uni.it
+489  |   Corso di Laurea in Informatica                      |   triennale   |   informatica@uni.it
+601
+Corso di Laurea in Tecniche di Radiologia Medica
+triennale
+tecniche-di-radiologia-medica@uni.it
+725
+Corso di Laurea in Logopedia
+triennale
+logopedia@uni.it
+766
+Corso di Laurea in Tecniche di Neurofisiopatologia
+triennale
+tecniche-di-neurofisiopatologia@uni.it
+1016
+Corso di Laurea Magistrale in Economia e Diritto
+magistrale
+economia-e-diritto@uni.it
+1017
+Corso di Laurea Magistrale in Economia e Diritto
+magistrale
+economia-e-diritto@uni.it
+1259
+Corso di Laurea Magistrale in Lingue e Letterature...
+magistrale
+lingue-e-letterature-europee-e-americane@uni.it
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 - query
-    SELECT `students`.`id` AS student_id,  `students`.`surname` AS `student_surname`, `students`.`name` AS `student_name`, `degrees`.`id` AS `degree_id`, `degrees`.`name` AS `degree_name`, `degrees`.`department_id`, `degrees`.`level`, `degrees`.`address`, `degrees`.`email`, `degrees`.`website`
+    SELECT `students`.`id` AS student_id,  `students`.`surname` AS `student_surname`, `students`.`name` AS `student_name`, `degrees`.`id` AS `degree_id`, `degrees`.`name` AS `degree_name`, `degrees`.`level` AS `degree_level`, `degrees`.`address` AS `degree_address`, `departments`.`name` AS `department_name`, `departments`.`address` AS `department_address`
     FROM `students` 
-    JOIN `degrees` ON `degrees`.`id` = `degree_id`
-    ORDER BY `students`.`surname` ASC, `students`.`name` ASC
+    JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id`
+    JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
+    ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
 
 - result
     - 5000 student(s) found
@@ -178,7 +196,7 @@
  
 ## 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 - query
-    SELECT `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`, `teachers`.`email` AS `teacher_email`
+    SELECT DISTINCT `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`, `teachers`.`email` AS `teacher_email`
     FROM `course_teacher`
     JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
     JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id`
@@ -187,7 +205,7 @@
     WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 - result
-    - 70 teacher(s) found
+    - 54 teacher(s) found
 
 
 <!-- MI SONO RESO CONTO UN PO' TARDI DELLA POSSIBILITÀ DI FARE JOIN DI PIÙ TABELLE, PER QUESTO NEGLI ESERCIZI FINO AL 4, SEPPUR CORRETTI, MANCANO TANTE INFORMAZIONI RELATIVE ALLE ALTRE TABELLE. IN QUANTO VI SONO PRESENTI SOLTANTO GLI ID -->
