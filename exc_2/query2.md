@@ -142,35 +142,18 @@
 
 - result
     - 11 course(s) found
-23   |   Corso di Laurea in Biologia molecolare              |   triennale   |   biologia-molecolare@uni.it
-155  |   Corso di Laurea Magistrale in Scienze della natura  |   magistrale  |   scienze-della-natura@uni.it
-170  |   Corso di Laurea in Astronomia                       |   triennale   |   astronomia@uni.it
-251  |   Corso di Laurea in Ingegneria Civile                |   triennale   |   ingegneria-civile@uni.it
-489  |   Corso di Laurea in Informatica                      |   triennale   |   informatica@uni.it
-601
-Corso di Laurea in Tecniche di Radiologia Medica
-triennale
-tecniche-di-radiologia-medica@uni.it
-725
-Corso di Laurea in Logopedia
-triennale
-logopedia@uni.it
-766
-Corso di Laurea in Tecniche di Neurofisiopatologia
-triennale
-tecniche-di-neurofisiopatologia@uni.it
-1016
-Corso di Laurea Magistrale in Economia e Diritto
+23   |   Corso di Laurea in Biologia molecolare              |   triennale   |
+155  |   Corso di Laurea Magistrale in Scienze della natura  |   magistrale  |   
+170  |   Corso di Laurea in Astronomia                       |   triennale   |   
+251  |   Corso di Laurea in Ingegneria Civile                |   triennale   |   
+489  |   Corso di Laurea in Informatica                      |   triennale   |   
+601  |   Corso di Laurea in Tecniche di Radiologia Medica    |   triennale   |
+725  |   Corso di Laurea in Logopedia                        |   triennale   |
+766  |   Corso di Laurea in Tecniche di Neurofisiopatologia  |   triennale   |
+1016 |   Corso di Laurea Magistrale in Economia e Diritto    |   magistrale  |
+1017 |   Corso di Laurea Magistrale in Economia e Diritto    |   magistrale  |
+1259 |   Corso di Laurea Magistrale in Lingue e Letterature
 magistrale
-economia-e-diritto@uni.it
-1017
-Corso di Laurea Magistrale in Economia e Diritto
-magistrale
-economia-e-diritto@uni.it
-1259
-Corso di Laurea Magistrale in Lingue e Letterature...
-magistrale
-lingue-e-letterature-europee-e-americane@uni.it
 
 ## 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 - query
